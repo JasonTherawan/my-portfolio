@@ -1,35 +1,32 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./components/header"
+import HeroContent from "./components/hero-content"
+import ShaderBackground from "./components/shader-background"
+import SkillsSection from "./components/skills-section"
+import ProjectsSection from "./components/projects-section"
+import ExperiencesSection from "./components/experiences-section"
+import AchievementsSection from "./components/achievements-section"
+import ContactSection from "./components/contact-section"
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <ShaderBackground>
+      <Header />
+      <HeroContent />
+      <div id="skills">
+        <SkillsSection />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div id="projects">
+        <ProjectsSection />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div id="experience">
+        <ExperiencesSection />
+      </div>
+      <div id="achievements">
+        <AchievementsSection />
+      </div>
+      <div id="contact">
+        <ContactSection />
+      </div>
+    </ShaderBackground>
   )
 }
-
-export default App
