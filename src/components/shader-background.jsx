@@ -8,7 +8,7 @@ export default function ShaderBackground({ children }) {
     setIsMounted(true);
   }, []);
 
-  // A palette of darker colors for the shader
+  // A palette of for the shader
   const darkColors = [
     "#0d0d2b", // Deep Blue
     "#1a1a3d", // Dark Indigo
@@ -22,7 +22,7 @@ export default function ShaderBackground({ children }) {
         {isMounted && (
           <MeshGradient
             className="w-full h-full"
-            colors={darkColors} // Pass the dark colors here
+            colors={darkColors}
           />
         )}
       </div>

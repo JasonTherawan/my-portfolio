@@ -46,7 +46,7 @@ export default function SkillsSection() {
 
   const softSkills = [
     "Leadership", "Project Management", "Strategic Planning", "Public Speaking",
-    "Mentorship", "Team Collaboration", "Creative Problem-Solving",
+    "Mentorship", "Team Collaboration", "Creative Problem-Solving", "Communication",
   ]
 
   // Injecting CSS animations directly into the component
@@ -68,7 +68,7 @@ export default function SkillsSection() {
   `;
 
   return (
-    <section className="relative py-12 px-4">
+    <section className="relative py-22 px-4">
       <style>{animationStyles}</style>
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}

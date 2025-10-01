@@ -46,11 +46,6 @@ export default function PulsingCircle() {
           <defs>
             <path id="circle" d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" />
           </defs>
-          <text className="text-sm fill-white/80 instrument">
-            <textPath href="#circle" startOffset="0%">
-              v0 is amazing • v0 is amazing • v0 is amazing • v0 is amazing •
-            </textPath>
-          </text>
         </motion.svg>
       </div>
     </div>

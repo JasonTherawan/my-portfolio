@@ -15,7 +15,7 @@ const scrollToTop = () => {
 export default function Header() {
   return (
     <header className="sticky top-0 z-20 flex items-center justify-between p-6 bg-black/20 backdrop-blur-lg">
-      {/* Logo/Name */}
+      {/* Name */}
       <div className="flex items-center">
         <button onClick={scrollToTop} className="bg-transparent border-none p-0">
           <span className="text-white font-medium text-lg tracking-tight">Jason Therawan</span>

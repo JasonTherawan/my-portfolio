@@ -29,7 +29,7 @@ export default function ContactSection() {
   ]
 
   return (
-    <footer className="relative py-20 px-6 border-t border-white/10">
+    <footer className="relative py-16 px-6 border-t border-white/10">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
