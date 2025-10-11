@@ -26,6 +26,11 @@ export default function HeroContent() {
             From system blueprints to final deployment, I specialize in the full software lifecycle. I am dedicated to building solutions that are not only powerful and scalable but also elegant and a pleasure to maintain.
           </p>
 
+          {/* Education Details */}
+          <p className="text-sm font-light text-white/70 mb-8 leading-relaxed">
+            3<sup>rd</sup> year Computer Science student at BINUS University, with current GPA of 3.83.
+          </p>
+
           {/* Action Buttons */}
           <div className="flex items-center gap-4 flex-wrap">
             <button
