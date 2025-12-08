@@ -43,7 +43,7 @@ export default function ExperiencesSection() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.1 } // Lower threshold for mobile
     );
 
     const elements = document.querySelectorAll("[data-timeline-item]");
@@ -53,78 +53,94 @@ export default function ExperiencesSection() {
   }, []);
 
   return (
-    <section className="py-22 px-4 relative">
+    <section className="py-22 px-4 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Professional Experience</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Professional Experience</h2>
+          <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto px-4">
             A journey through my career milestones and professional growth
           </p>
         </div>
 
         {/* Timeline Container */}
         <div className="relative">
-          {/* Vertical Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-white/10 rounded-full"></div>
+          {/* Vertical Timeline Line - Left on mobile, Center on desktop */}
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-1 h-full bg-white/10 rounded-full"></div>
 
           {/* Timeline Items */}
-          <div className="space-y-4">
-            {experiencesData.map((experience, index) => (
-              <div
-                key={experience.id}
-                data-id={experience.id}
-                data-timeline-item
-                className={`relative flex items-center ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
-              >
-                {/* Timeline Node */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gray-800 rounded-full border-4 border-gray-900 z-10 shadow-lg">
-                  <div className="w-full h-full rounded-full bg-white/30"></div>
-                </div>
-
-                {/* Connecting Line */}
-                <div className={`absolute top-1/2 w-1/2 h-px bg-white/20 ${index % 2 === 0 ? 'left-1/2 ml-3' : 'right-1/2 mr-3'}`}></div>
-
-                {/* Experience Card */}
+          <div className="space-y-12 md:space-y-4">
+            {experiencesData.map((experience, index) => {
+              const isLeft = index % 2 === 0;
+              
+              return (
                 <div
-                  className={`w-full max-w-xl py-4 ${index % 2 === 0 ? "mr-auto pr-8" : "ml-auto pl-8"} ${
-                    visibleItems.has(experience.id.toString())
-                      ? "animate-fade-in-up opacity-100"
-                      : "opacity-0 translate-y-8"
-                  } transition-all duration-700 ease-out`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
+                  key={experience.id}
+                  data-id={experience.id}
+                  data-timeline-item
+                  className={`relative flex flex-col md:flex-row items-center md:items-center ${
+                    isLeft ? "md:justify-start" : "md:justify-end"
+                  }`}
                 >
-                  <div className={`inline-block mb-4 ${index % 2 === 0 ? "text-right w-full" : "text-left"}`}>
-                    <span className="inline-block px-4 py-2 rounded-full text-sm font-bold text-white bg-white/10 border border-white/20 backdrop-blur-sm">
-                      {experience.time}
-                    </span>
+                  {/* Timeline Node - Left on mobile, Center on desktop */}
+                  <div className="absolute left-4 md:left-1/2 transform -translate-x-1/2 w-4 h-4 md:w-6 md:h-6 bg-gray-800 rounded-full border-2 md:border-4 border-gray-900 z-10 shadow-lg mt-1 md:mt-0 top-0 md:top-1/2 md:-translate-y-1/2">
+                    <div className="w-full h-full rounded-full bg-white/30"></div>
                   </div>
 
-                  {/* Card */}
-                  <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/20 transition-all duration-300 group">
-                    {/* Card Header */}
-                    <div className={`mb-4 ${index % 2 === 0 ? "text-left" : "text-right"}`}>
-                      <h3 className="text-white font-bold text-xl">{experience.title}</h3>
-                      <p className="text-gray-300 font-medium text-sm">{experience.company}</p>
+                  {/* Connecting Line - Hidden on Mobile */}
+                  <div className={`hidden md:block absolute top-1/2 w-1/2 h-px bg-white/20 ${
+                    isLeft ? 'left-1/2 ml-3' : 'right-1/2 mr-3'
+                  }`}></div>
+
+                  {/* Experience Card */}
+                  <div
+                    className={`w-full md:w-[calc(50%-2rem)] pl-12 md:pl-0 
+                    ${isLeft ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"} 
+                    ${visibleItems.has(experience.id.toString())
+                        ? "animate-fade-in-up opacity-100"
+                        : "opacity-0 translate-y-8"
+                    } transition-all duration-700 ease-out`}
+                    style={{ transitionDelay: `${index * 100}ms` }}
+                  >
+                    {/* Time Label */}
+                    <div className={`inline-block mb-3 md:mb-4 ${
+                      isLeft ? "md:text-right w-full" : "md:text-left"
+                    }`}>
+                      <span className="inline-block px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold text-white bg-white/10 border border-white/20 backdrop-blur-sm">
+                        {experience.time}
+                      </span>
                     </div>
 
-                    {/* Card Content */}
-                    <p className={`text-gray-300 leading-relaxed ${index % 2 === 0 ? "text-left" : "text-right"}`}>
-                      {experience.description}
-                    </p>
+                    {/* Card */}
+                    <div className="bg-white/5 backdrop-blur-md rounded-2xl p-5 md:p-6 border border-white/10 shadow-xl hover:shadow-2xl hover:border-white/20 transition-all duration-300 group">
+                      {/* Card Header */}
+                      <div className={`mb-4 ${isLeft ? "md:text-left" : "md:text-right"}`}>
+                        <h3 className="text-white font-bold text-lg md:text-xl">{experience.title}</h3>
+                        <p className="text-gray-300 font-medium text-sm">{experience.company}</p>
+                      </div>
 
-                    {/* Skills Section */}
-                    <div className={`mt-4 flex flex-wrap gap-2 ${index % 2 === 0 ? "justify-start" : "justify-end"}`}>
-                      {experience.skills.map((skill, skillIndex) => (
-                        <span key={skillIndex} className="px-3 py-1 text-xs bg-white/10 rounded-full text-white/80">
-                          {skill}
-                        </span>
-                      ))}
+                      {/*QV Card Content */}
+                      <p className={`text-gray-300 text-sm md:text-base leading-relaxed ${
+                        isLeft ? "md:text-left" : "md:text-right"
+                      }`}>
+                        {experience.description}
+                      </p>
+
+                      {/* Skills Section */}
+                      <div className={`mt-4 flex flex-wrap gap-2 ${
+                        isLeft ? "md:justify-start" : "md:justify-end"
+                      }`}>
+                        {experience.skills.map((skill, skillIndex) => (
+                          <span key={skillIndex} className="px-2 py-1 md:px-3 text-xs bg-white/10 rounded-full text-white/80 border border-white/5">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

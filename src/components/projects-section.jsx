@@ -66,66 +66,67 @@ const projectsData = [
   },
 ];
 
+
 export default function ProjectsSection() {
   const [hoveredProject, setHoveredProject] = useState(null);
 
   return (
-    <section className="relative min-h-screen py-22 px-6">
+    <section className="relative min-h-screen py-16 md:py-22 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
-          <p className="text-gray-300 text-lg max-w-4xl mx-auto">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">Featured Projects</h2>
+          <p className="text-gray-300 text-base md:text-lg max-w-4xl mx-auto">
             A showcase of my latest work in full-stack development, software application, and system architecture.
           </p>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-20 md:space-y-32">
           {projectsData.map((project, index) => (
             <div
               key={project.id}
-              className={`flex flex-col lg:flex-row items-center gap-12 ${
+              className={`flex flex-col lg:flex-row items-center gap-8 md:gap-12 ${
                 index % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
             >
               {/* Project Info */}
-              <div className="flex-1 space-y-6">
+              <div className="flex-1 space-y-4 md:space-y-6 w-full">
                 <div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">{project.title}</h3>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <h3 className="text-2xl md:text-4xl font-bold text-white mb-3 md:mb-4">{project.title}</h3>
+                  <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                     {project.technologies.map((tech, techIndex) => (
-                      <span key={techIndex} className="px-3 py-1 text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 hover:bg-white/20 transition-colors duration-300">
+                      <span key={techIndex} className="px-2 py-1 md:px-3 text-xs md:text-sm bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white/90 hover:bg-white/20 transition-colors duration-300">
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <p className="text-gray-300 text-lg leading-relaxed">{project.description}</p>
-                  <p className="text-gray-400 leading-relaxed">{project.fullDescription}</p>
+                <div className="space-y-3 md:space-y-4 text-sm md:text-base">
+                  <p className="text-gray-300 leading-relaxed">{project.description}</p>
+                  <p className="text-gray-400 leading-relaxed hidden sm:block">{project.fullDescription}</p>
                 </div>
 
                 {/* --- ACTION BUTTONS --- */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 mt-4">
                   {project.link && (
                     <button
-                      className="group relative w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+                      className="group relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
                       onClick={() => window.open(project.link, "_blank")}
                       title="View Project Code"
                     >
-                      <svg className="w-6 h-6 text-white transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 md:w-6 md:h-6 text-white transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
                       </svg>
                     </button>
                   )}
                   {project.videoLink && (
                     <button
-                      className="group relative w-12 h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+                      className="group relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
                       onClick={() => window.open(project.videoLink, "_blank")}
                       title="View Video Demo"
                     >
-                      <Play className="w-5 h-5 text-white" />
+                      <Play className="w-4 h-4 md:w-5 md:h-5 text-white" />
                     </button>
                   )}
                   <span className="text-gray-400 text-sm">
@@ -135,13 +136,13 @@ export default function ProjectsSection() {
               </div>
 
               {/* --- PROJECT IMAGES --- */}
-              <div className="flex-1 relative">  
-                <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
+              <div className="flex-1 relative w-full">  
+                <div className="grid grid-cols-2 gap-3 md:gap-4 max-w-lg mx-auto">
                   {project.images.map((image, imageIndex) => (
                     <div
                       key={imageIndex}
-                      className={`relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 ${hoveredProject === project.id ? "transform hover:scale-105" : ""} ${
-                        imageIndex === 0 ? "col-span-2 h-60" : "h-36"
+                      className={`relative overflow-hidden rounded-xl md:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 ${hoveredProject === project.id ? "transform hover:scale-105" : ""} ${
+                        imageIndex === 0 ? "col-span-2 h-48 md:h-60" : "h-28 md:h-36"
                       } ${image.className || ""}`}
                     >
                       <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />

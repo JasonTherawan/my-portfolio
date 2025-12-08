@@ -7,12 +7,12 @@ const scrollToSection = (sectionId) => {
 
 export default function HeroContent() {
   return (
-    <main className="relative flex items-center justify-center px-8 py-24 z-10">
-      <div className="max-w-6xl w-full flex items-center justify-between gap-12">
+    <main className="relative flex items-center justify-center px-6 py-12 md:py-24 z-10 min-h-[calc(100vh-80px)]">
+      <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-12">
         {/* Left Side - Content */}
-        <div className="flex-1">
+        <div className="flex-1 text-center md:text-left">
           {/* Name */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl tracking-tight font-light text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-light text-white mb-6">
             <span className="font-medium italic">Jason Therawan</span>
           </h1>
 
@@ -22,7 +22,7 @@ export default function HeroContent() {
           </p>
 
           {/* Short Description */}
-          <p className="text-sm font-light text-white/70 mb-8 leading-relaxed">
+          <p className="text-sm font-light text-white/70 mb-8 leading-relaxed max-w-2xl mx-auto md:mx-0">
             From system blueprints to final deployment, I specialize in the full software lifecycle. I am dedicated to building solutions that are not only powerful and scalable but also elegant and a pleasure to maintain.
           </p>
 
@@ -32,16 +32,16 @@ export default function HeroContent() {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4 flex-wrap">
+          <div className="flex items-center justify-center md:justify-start gap-4 flex-wrap">
             <button
               onClick={() => scrollToSection("projects")}
-              className="px-8 py-3 rounded-full bg-white/10 text-white border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center"
+              className="px-8 py-3 rounded-full bg-white/10 text-whiteZF border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center"
             >
               View Projects
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="px-8 py-3 rounded-full bg-white/10 text-white border border-white/20 font-normal text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center"
+              className="px-8 py-3 rounded-full bg-white/10 text-whiteZF border border-white/20 font-normal text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center"
             >
               Contact Me
             </button>
