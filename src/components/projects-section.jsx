@@ -23,7 +23,7 @@ const projectsData = [
     fullDescription: "This project showcases my ability to build a functional application from the ground up using a low-level language, proving my understanding of core computer science concepts without relying on modern frameworks.",
     technologies: ["C"],
     images: [
-        { src: "/blinkbank1.png", alt: "Blink Bank Main Page", className: "h-78" },
+        { src: "/blinkbank1.png", alt: "Blink Bank Main Page" },
         { src: "/blinkbank2.png", alt: "Blink Bank Credential Page" },
         { src: "/blinkbank3.png", alt: "Blink Bank Main Menu Page" },
     ],
@@ -36,7 +36,7 @@ const projectsData = [
     fullDescription: "A fully functional prototype that uses an ESP32-CAM to capture an image, a CNN model to classify it as organic or inorganic, and then automatically directs it to the correct compartment.",
     technologies: ["IoT", "C for Embedded System", "Python", "Streamlit", "TensorFlow"],
     images: [
-      { src: "/smarttrashbin.png", alt: "Smart Trash Bin", className: "h-76" },
+      { src: "/smarttrashbin.png", alt: "Smart Trash Bin" },
     ],
     link: "https://github.com/JasonTherawan/ShijinForge_Stage4",
     videoLink: "https://youtu.be/JbN-0TZBvRU?si=-TiY4cNIgLoOepvC",
@@ -48,7 +48,7 @@ const projectsData = [
     fullDescription: "A full-featured e-commerce web application developed using the ASP.NET framework. It serves as an online marketplace for trading cards, built on a robust MVC architecture.",
     technologies: ["ASP.NET", "Tailwind CSS", "C#", "RDBMS", "Domain Driven Design"],
     images: [
-      { src: "/lordcardshop.png", alt: "LOrd Card Shop Login Page", className: "h-68" },
+      { src: "/lordcardshop.png", alt: "LOrd Card Shop Login Page" },
     ],
     link: "https://github.com/Kimchiigu/LOrdCardShop",
   },
@@ -59,7 +59,7 @@ const projectsData = [
     fullDescription: "As the lead researcher, I was responsible for the entire scientific process, from literature review and data collection to training and evaluating four distinct models (DenseNet201, CapsNet, DeiT, and VQ-VAE).",
     technologies: ["DenseNet201", "CapsNet", "DeiT", "VQ-VAE"],
     images: [
-      { src: "/research.png", alt: "Research Poster", className: "h-88" },
+      { src: "/research.png", alt: "Research Poster" },
     ],
     link: null,
     videoLink: "https://drive.google.com/file/d/1x7P0HJsEUqSbfdP27soFexfAE7DRNgmF/view?usp=sharing",
