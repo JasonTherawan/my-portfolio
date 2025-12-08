@@ -74,7 +74,7 @@ export default function Header() {
             href="/jasontherawan-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex px-6 py-2 rounded-full bg-white/10 text-white border border-white/20 font-bold text-smqp transition-all duration-300 hover:bg-white/20 cursor-pointer h-9 items-center"
+            className="hidden md:flex px-6 py-2 rounded-full bg-white/10 text-white border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer h-9 items-center"
           >
             Resume
           </a>
@@ -100,7 +100,7 @@ export default function Header() {
 
       {/* Mobile Sidebar Drawer */}
       <div
-        className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-[#1a1a1a] border-l border-white/10 z-50 shadow-2xl transform transition-transform duration-300 ease-out md:hidden flex flex-col ${
+        className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-[#1a1a1a] border-l border-white/10 z-50 shadow-2xl transform transition-transform duration-300 ease-out md:hidden flex flex-col overflow-x-hidden ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -116,7 +116,7 @@ export default function Header() {
         </div>
 
         {/* Drawer Content */}
-        <div className="flex-1 overflow-y-auto py-4 px-2">
+        <div className="flex-1 overflow-y-auto py-4 px-2 overflow-x-hidden">
           <nav className="space-y-1">
             {navItems.map((item) => (
               <button
@@ -130,7 +130,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="w-full h-px bg-white/10 my-6 mx-4 w-[calc(100%-2rem)]" />
+          <div className="h-px w-[90%] bg-white/10 my-6 mx-auto" />
 
           <div className="px-4">
              <p className="text-white/40 text-xs uppercase font-bold tracking-wider mb-4 px-2">Resources</p>

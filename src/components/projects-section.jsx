@@ -14,6 +14,7 @@ const projectsData = [
       { src: "/planit3.png", alt: "PlanIt Landing Page" },
     ],
     link: "https://github.com/JasonTherawan/PlanIt",
+    videoLink: "https://youtu.be/fyQQAP_fmcw",
   },
   {
     id: 2,
@@ -140,10 +141,10 @@ export default function ProjectsSection() {
                     <div
                       key={imageIndex}
                       className={`relative overflow-hidden rounded-xl md:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 ${hoveredProject === project.id ? "transform hover:scale-105" : ""} ${
-                        imageIndex === 0 ? "col-span-2 h-60" : "h-36"
+                        imageIndex === 0 ? "col-span-2" : ""
                       } ${image.className || ""}`}
                     >
-                      <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                      <img src={image.src} alt={image.alt} className="w-full h-auto object-contain" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                     </div>
                   ))}
