@@ -10,7 +10,7 @@ export default function HeroContent() {
     <main className="relative flex items-center justify-center px-6 py-12 md:py-24 z-10 min-h-[calc(100vh-80px)]">
       <div className="max-w-6xl w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-12">
         {/* Left Side - Content */}
-        <div className="flex-1 text-center md:text-left">
+        <div className="flex-1 text-center md:text-left w-full">
           {/* Name */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight font-light text-white mb-6">
             <span className="font-medium italic">Jason Therawan</span>
@@ -32,19 +32,27 @@ export default function HeroContent() {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-center md:justify-start gap-4 flex-wrap">
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="px-8 py-3 rounded-full bg-white/10 text-whiteZF border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center"
-            >
-              View Projects
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="px-8 py-3 rounded-full bg-white/10 text-whiteZF border border-white/20 font-normal text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center"
-            >
-              Contact Me
-            </button>
+          <div className="flex flex-col items-center md:items-start w-full">
+             <div className="flex flex-col sm:flex-row gap-4 w-fit sm:w-auto">
+                <button
+                  onClick={() => scrollToSection("projects")}
+                  className="w-full sm:w-auto px-8 py-3 rounded-full bg-white/10 text-white border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center justify-center whitespace-nowrap"
+                >
+                  View Projects
+                </button>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="w-full sm:w-auto px-8 py-3 rounded-full bg-white/10 text-white border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center justify-center whitespace-nowrap"
+                >
+                  Contact Me
+                </button>
+                <button
+                  onClick={() => window.open("/jasontherawan-resume.pdf", "_blank")}
+                  className="md:hidden w-full sm:w-auto px-8 py-3 rounded-full bg-white/10 text-white border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer flex items-center justify-center whitespace-nowrap"
+                >
+                  View Resume
+                </button>
+             </div>
           </div>
         </div>
 

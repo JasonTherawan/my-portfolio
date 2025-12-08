@@ -49,7 +49,7 @@ export default function AchievementsSection() {
   }, [])
 
   return (
-    <section className="py-22 px-4 relative">
+    <section className="py-22 px-4 relative" id="achievements">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -72,13 +72,13 @@ export default function AchievementsSection() {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Achievement Image */}
-              <div className="relative mb-6 overflow-hidden rounded-xl">
+              <div className="relative mb-6 overflow-hidden rounded-xl bg-black/20">
                 <img
                   src={achievement.image || "/placeholder.svg"}
                   alt={achievement.title}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  // FIX: Use h-auto and object-contain to show full certificate
+                  className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               {/* Achievement Content */}

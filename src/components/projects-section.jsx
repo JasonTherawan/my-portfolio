@@ -14,7 +14,6 @@ const projectsData = [
       { src: "/planit3.png", alt: "PlanIt Landing Page" },
     ],
     link: "https://github.com/JasonTherawan/PlanIt",
-    videoLink: "https://youtu.be/fyQQAP_fmcw",
   },
   {
     id: 2,
@@ -66,7 +65,6 @@ const projectsData = [
   },
 ];
 
-
 export default function ProjectsSection() {
   const [hoveredProject, setHoveredProject] = useState(null);
 
@@ -107,7 +105,7 @@ export default function ProjectsSection() {
                   <p className="text-gray-400 leading-relaxed hidden sm:block">{project.fullDescription}</p>
                 </div>
 
-                {/* --- ACTION BUTTONS --- */}
+                {/* --- Action Buttons --- */}
                 <div className="flex items-center gap-4 mt-4">
                   {project.link && (
                     <button
@@ -135,14 +133,14 @@ export default function ProjectsSection() {
                 </div>
               </div>
 
-              {/* --- PROJECT IMAGES --- */}
+              {/* --- Project Images --- */}
               <div className="flex-1 relative w-full">  
                 <div className="grid grid-cols-2 gap-3 md:gap-4 max-w-lg mx-auto">
                   {project.images.map((image, imageIndex) => (
                     <div
                       key={imageIndex}
                       className={`relative overflow-hidden rounded-xl md:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 transition-all duration-500 ${hoveredProject === project.id ? "transform hover:scale-105" : ""} ${
-                        imageIndex === 0 ? "col-span-2 h-48 md:h-60" : "h-28 md:h-36"
+                        imageIndex === 0 ? "col-span-2 h-60" : "h-36"
                       } ${image.className || ""}`}
                     >
                       <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />

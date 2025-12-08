@@ -49,7 +49,6 @@ export default function SkillsSection() {
     "Mentorship", "Team Collaboration", "Creative Problem-Solving", "Communication",
   ]
 
-  // Injecting CSS animations directly into the component
   const animationStyles = `
     @keyframes marquee {
       0% { transform: translateX(0%); }
@@ -59,12 +58,24 @@ export default function SkillsSection() {
       0% { transform: translateX(-100%); }
       100% { transform: translateX(0%); }
     }
+    
+    /* Desktop Speeds */
     .animate-marquee-slow { animation: marquee 60s linear infinite; }
     .animate-marquee-medium { animation: marquee 40s linear infinite; }
     .animate-marquee-fast { animation: marquee 20s linear infinite; }
     .animate-marquee-reverse-slow { animation: marquee-reverse 60s linear infinite; }
     .animate-marquee-reverse-medium { animation: marquee-reverse 40s linear infinite; }
     .animate-marquee-reverse-fast { animation: marquee-reverse 20s linear infinite; }
+
+    /* Mobile Speeds (Faster) */
+    @media (max-width: 768px) {
+      .animate-marquee-slow { animation-duration: 25s; }
+      .animate-marquee-medium { animation-duration: 20s; }
+      .animate-marquee-fast { animation-duration: 15s; }
+      .animate-marquee-reverse-slow { animation-duration: 25s; }
+      .animate-marquee-reverse-medium { animation-duration: 20s; }
+      .animate-marquee-reverse-fast { animation-duration: 15s; }
+    }
   `;
 
   return (

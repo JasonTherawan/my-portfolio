@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Menu, X, FileText } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, FileText, ChevronRight } from "lucide-react";
 
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
@@ -20,6 +20,17 @@ const scrollToTop = () => {
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   const handleNavClick = (sectionId) => {
     scrollToSection(sectionId);
     setIsMenuOpen(false);
@@ -36,9 +47,8 @@ export default function Header() {
   return (
     <>
       {/* Header Bar */}
-      <header className="sticky top-0 z-50 flex items-center justify-between p-4 md:p-6 bg-black/20 backdrop-blur-lg border-b border-white/5">
-        {/* Name / Logo */}
-        <div className="flex items-center z-50">
+      <header className="sticky top-0 z-40 flex items-center justify-between p-4 md:p-6 bg-black/20 backdrop-blur-lg border-b border-white/5">
+        <div className="flex items-center">
           <button onClick={scrollToTop} className="bg-transparent border-none p-0 cursor-pointer">
             <span className="text-white font-medium text-lg md:text-xl tracking-tight">Jason Therawan</span>
           </button>
@@ -58,13 +68,13 @@ export default function Header() {
         </nav>
 
         {/* Right Side Actions */}
-        <div className="flex items-center gap-3 z-50">
-          {/* Resume Button (Desktop) */}
+        <div className="flex items-center gap-3">
+          {/* Resume Button (Desktop Only) */}
           <a
             href="/jasontherawan-resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex px-6 py-2 rounded-full bg-white/10 text-white border border-white/20 font-bold text-sm transition-all duration-300 hover:bg-white/20 cursor-pointer h-9 items-center"
+            className="hidden md:flex px-6 py-2 rounded-full bg-white/10 text-white border border-white/20 font-bold text-smqp transition-all duration-300 hover:bg-white/20 cursor-pointer h-9 items-center"
           >
             Resume
           </a>
@@ -72,53 +82,76 @@ export default function Header() {
           {/* Mobile Menu Toggle Button */}
           <button
             className="md:hidden p-2 text-white hover:bg-white/10 rounded-full transition-colors z-50"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            onClick={() => setIsMenuOpen(true)}
+            aria-label="Open menu"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <Menu size={24} />
           </button>
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Drawer Backdrop */}
       <div
-        className={`fixed inset-0 bg-[#1a1a1a] z-[100] flex flex-col items-center justify-center space-y-8 transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setIsMenuOpen(false)}
+      />
+
+      {/* Mobile Sidebar Drawer */}
+      <div
+        className={`fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-[#1a1a1a] border-l border-white/10 z-50 shadow-2xl transform transition-transform duration-300 ease-out md:hidden flex flex-col ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Close Button inside menu for easier access */}
-        <button 
-          onClick={() => setIsMenuOpen(false)}
-          className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors"
-        >
-          <X size={32} />
-        </button>
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between p-6 border-b border-white/5">
+          <span className="text-white font-bold text-lg">Menu</span>
+          <button 
+            onClick={() => setIsMenuOpen(false)}
+            className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors"
+          >
+            <X size={24} />
+          </button>
+        </div>
 
-        {/* Menu Items */}
-        <nav className="flex flex-col items-center space-y-6">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              className="text-white text-2xl md:text-3xl font-light tracking-wide hover:text-blue-400 transition-colors"
+        {/* Drawer Content */}
+        <div className="flex-1 overflow-y-auto py-4 px-2">
+          <nav className="space-y-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="w-full flex items-center justify-between p-4 text-white/90 hover:bg-white/5 rounded-xl transition-all group"
+              >
+                <span className="text-lg font-light">{item.label}</span>
+                <ChevronRight size={16} className="text-white/30 group-hover:text-white/70 transition-colors" />
+              </button>
+            ))}
+          </nav>
+
+          <div className="w-full h-px bg-white/10 my-6 mx-4 w-[calc(100%-2rem)]" />
+
+          <div className="px-4">
+             <p className="text-white/40 text-xs uppercase font-bold tracking-wider mb-4 px-2">Resources</p>
+             <a
+              href="/jasontherawan-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 w-full p-4 text-white/90 hover:bg-white/5 rounded-xl transition-all"
             >
-              {item.label}
-            </button>
-          ))}
-        </nav>
-
-        <div className="w-16 h-px bg-white/10 my-4" />
-
-        {/* Mobile Resume Button */}
-        <a
-          href="/jasontherawan-resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-8 py-3 rounded-full bg-white/10 text-white border border-white/20 font-bold text-lg hover:bg-white/20 transition-all"
-        >
-          <FileText size={20} />
-          View Resume
-        </a>
+              <FileText size={20} className="text-blue-400" />
+              <span className="text-lg font-light">View Resume</span>
+            </a>
+          </div>
+        </div>
+        
+        {/* Drawer Footer */}
+        <div className="p-6 border-t border-white/5">
+          <p className="text-white/30 text-xs text-center">
+            © {new Date().getFullYear()} Jason Therawan
+          </p>
+        </div>
       </div>
     </>
   );

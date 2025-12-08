@@ -49,7 +49,7 @@ export default function ContactSection() {
                 href={contact.href}
                 target={contact.name !== "Email" ? "_blank" : undefined}
                 rel={contact.name !== "Email" ? "noopener noreferrer" : undefined}
-                className="group relative p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 hover:bg-white/10"
+                className="group relative p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all duration-300 hover:scale-105 hover:bg-white/10"
                 style={{
                   animationDelay: `${index * 0.1}s`,
                 }}
@@ -62,9 +62,9 @@ export default function ContactSection() {
                 {/* Content */}
                 <div className="relative z-10 text-center">
                   <div
-                    className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${contact.color} mb-6 group-hover:scale-110 transition-transform duration-300`}
+                    className={`inline-flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br ${contact.color} mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <IconComponent className="w-8 h-8 text-white" />
+                    <IconComponent className="w-7 h-7 text-white" />
                   </div>
 
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 group-hover:bg-clip-text transition-all duration-300">
