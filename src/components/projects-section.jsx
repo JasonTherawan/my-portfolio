@@ -14,7 +14,6 @@ const projectsData = [
       { src: "/planit3.png", alt: "PlanIt Landing Page" },
     ],
     link: "https://github.com/JasonTherawan/PlanIt",
-    videoLink: "https://youtu.be/fyQQAP_fmcw",
   },
   {
     id: 2,
