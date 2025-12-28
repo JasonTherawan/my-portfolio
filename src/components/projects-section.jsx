@@ -30,6 +30,19 @@ const projectsData = [
   },
   {
     id: 3,
+    title: "GoVlash Laundry",
+    description: "A desktop-based laundry management system featuring role-based access control that streamlines workflows between customers, admins, receptionists, and laundry staff.",
+    fullDescription: "As the project leader, I designed the application's architecture using the MVC pattern. I was responsible for the entire full-stack implementation, connecting the Java backend to a MySQL database and building the complete user interface with JavaFX.",
+    technologies: ["Java", "JavaFX", "MySQL", "JDBC"],
+    images: [
+      { src: "/govlashlaundry1.png", alt: "Admin Dashboard" },
+      { src: "/govlashlaundry2.png", alt: "Customer Dashboard" },
+      { src: "/govlashlaundry3.png", alt: "Register Page" },
+    ],
+    link: "https://github.com/JasonTherawan/GoVlashLaundry",
+  },
+  {
+    id: 4,
     title: "Smart Trash Bin",
     description: "A smart trash-sorting prototype capable of sorting waste into categories in real time using a custom-trained CNN model and an ESP32 microcontroller.",
     fullDescription: "A fully functional prototype that uses an ESP32-CAM to capture an image, a CNN model to classify it as organic or inorganic, and then automatically directs it to the correct compartment.",
@@ -41,7 +54,21 @@ const projectsData = [
     videoLink: "https://youtu.be/JbN-0TZBvRU?si=-TiY4cNIgLoOepvC",
   },
   {
-    id: 4,
+    id: 5,
+    title: "Smart Plant Watering System",
+    description: "An IoT-based automated irrigation system using ESP32 that monitors soil moisture and temperature to water plants autonomously or via the Blynk app.",
+    fullDescription: "Designed to optimize plant care, this system integrates an ESP32 microcontroller with capacitive soil moisture sensors and temperature monitoring to execute precise watering. It features intelligent scheduling via an RTC module and a safety mechanism using an ultrasonic sensor to detect low water levels and prevent pump dry-runs. The system prioritizes energy efficiency through Deep Sleep modes and offers real-time data visualization and manual override capabilities through a Blynk mobile dashboard.",
+    technologies: ["IoT", "C for Embedded System", "Blynk"],
+    images: [
+      { src: "/smartplantwatering1.png", alt: "Smart Plant Watering System" },
+      { src: "/smartplantwatering2.png", alt: "Prototype" },
+      { src: "/smartplantwatering3.jpeg", alt: "Blynk Dashboard" },
+    ],
+    link: null,
+    videoLink: "https://drive.google.com/file/d/18d3ghpS4pgjmyYuDZNCH3406RcHdKE9O/view?usp=sharing",
+  },
+  {
+    id: 6,
     title: "LOrd Card Shop",
     description: "An online platform dedicated to simplifying the buying and selling of collectible cards, featuring an intuitive interface and efficient management system for collectors and enthusiasts.",
     fullDescription: "A full-featured e-commerce web application developed using the ASP.NET framework. It serves as an online marketplace for trading cards, built on a robust MVC architecture.",
@@ -52,16 +79,16 @@ const projectsData = [
     link: "https://github.com/Kimchiigu/LOrdCardShop",
   },
   {
-    id: 5,
+    id: 7,
     title: "Benchmarking Models on Deepfake Detection",
     description: "A research project designed to systematically compare the effectiveness of four state-of-the-art deep learning models on the critical task of detecting deepfakes.",
-    fullDescription: "As the lead researcher, I was responsible for the entire scientific process, from literature review and data collection to training and evaluating four distinct models (DenseNet201, CapsNet, DeiT, and VQ-VAE).",
+    fullDescription: "As the lead researcher, I was responsible for the entire scientific process, from literature review and data collection to training, architecture configuration, and evaluating four distinct models (DenseNet201, CapsNet, DeiT, and VQ-VAE).",
     technologies: ["DenseNet201", "CapsNet", "DeiT", "VQ-VAE"],
     images: [
       { src: "/research.png", alt: "Research Poster" },
     ],
     link: null,
-    videoLink: "https://drive.google.com/file/d/1x7P0HJsEUqSbfdP27soFexfAE7DRNgmF/view?usp=sharing",
+    videoLink: "https://drive.google.com/file/d/1AkzUwcYo77-SOdmGFgwXt42PN768IfXY/view?usp=sharing",
   },
 ];
 
