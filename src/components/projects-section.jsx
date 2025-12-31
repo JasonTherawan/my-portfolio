@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Play } from "lucide-react";
+import { Play, Globe } from "lucide-react";
 
 const projectsData = [
   {
@@ -14,6 +14,8 @@ const projectsData = [
       { src: "/planit3.png", alt: "PlanIt Landing Page" },
     ],
     link: "https://github.com/JasonTherawan/PlanIt",
+    websiteLink: "https://planitplanner.vercel.app",
+    videoLink: null,
   },
   {
     id: 2,
@@ -27,6 +29,8 @@ const projectsData = [
         { src: "/blinkbank3.png", alt: "Blink Bank Main Menu Page" },
     ],
     link: "https://github.com/JasonTherawan/BlinkBank",
+    websiteLink: null,
+    videoLink: null,
   },
   {
     id: 3,
@@ -40,6 +44,8 @@ const projectsData = [
       { src: "/govlashlaundry3.png", alt: "Register Page" },
     ],
     link: "https://github.com/JasonTherawan/GoVlashLaundry",
+    websiteLink: null,
+    videoLink: null,
   },
   {
     id: 4,
@@ -51,7 +57,9 @@ const projectsData = [
       { src: "/smarttrashbin.png", alt: "Smart Trash Bin" },
     ],
     link: "https://github.com/JasonTherawan/ShijinForge_Stage4",
+    websiteLink: null,
     videoLink: "https://youtu.be/JbN-0TZBvRU?si=-TiY4cNIgLoOepvC",
+    videoLabel: "View Presentation",
   },
   {
     id: 5,
@@ -65,7 +73,9 @@ const projectsData = [
       { src: "/smartplantwatering3.jpeg", alt: "Blynk Dashboard" },
     ],
     link: null,
+    websiteLink: null,
     videoLink: "https://drive.google.com/file/d/18d3ghpS4pgjmyYuDZNCH3406RcHdKE9O/view?usp=sharing",
+    videoLabel: "View Demo",
   },
   {
     id: 6,
@@ -77,18 +87,22 @@ const projectsData = [
       { src: "/lordcardshop.png", alt: "LOrd Card Shop Login Page" },
     ],
     link: "https://github.com/Kimchiigu/LOrdCardShop",
+    websiteLink: null,
+    videoLink: null,
   },
   {
     id: 7,
-    title: "Benchmarking Models on Deepfake Detection",
-    description: "A research project designed to systematically compare the effectiveness of four state-of-the-art deep learning models on the critical task of detecting deepfakes.",
-    fullDescription: "As the lead researcher, I was responsible for the entire scientific process, from literature review and data collection to training, architecture configuration, and evaluating four distinct models (DenseNet201, CapsNet, DeiT, and VQ-VAE).",
+    title: "Benchmarking Model Performance on Deepfake Detection using Deep Neural Network",
+    description: "A comparative study on deepfake detection models presented at the 2025 GEn-CITy conference. This paper benchmarks four state-of-the-art architectures and is currently awaiting publication on IEEE Xplore.",
+    fullDescription: "As the lead researcher, I authored and presented this paper at the 2025 International Conference on Green Energy, Computing and Intelligent Technology (GEn-CITy) in Bali. I managed the entire scientific process, from data collection to configuring and evaluating four distinct models (DenseNet201, CapsNet, DeiT, and VQ-VAE). The paper has been accepted and is currently in the publishing process for IEEE Xplore.",
     technologies: ["DenseNet201", "CapsNet", "DeiT", "VQ-VAE"],
     images: [
       { src: "/research.png", alt: "Research Poster" },
     ],
     link: null,
+    websiteLink: null,
     videoLink: "https://drive.google.com/file/d/1AkzUwcYo77-SOdmGFgwXt42PN768IfXY/view?usp=sharing",
+    videoLabel: "View Presentation",
   },
 ];
 
@@ -132,35 +146,61 @@ export default function ProjectsSection() {
                   <p className="text-gray-400 leading-relaxed hidden sm:block">{project.fullDescription}</p>
                 </div>
 
-                {/* --- Action Buttons --- */}
-                <div className="flex items-center gap-4 mt-4">
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-6 mt-6">
+                  {/* Website Button */}
+                  {project.websiteLink && (
+                    <button
+                      className="group flex items-center gap-3 cursor-pointer"
+                      onClick={() => window.open(project.websiteLink, "_blank")}
+                      title="View Live Website"
+                    >
+                      <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                        <Globe className="w-5 h-5 md:w-6 md:h-6 text-white transform group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+                        Visit Website
+                      </span>
+                    </button>
+                  )}
+
+                  {/* Code Button */}
                   {project.link && (
                     <button
-                      className="group relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+                      className="group flex items-center gap-3 cursor-pointer"
                       onClick={() => window.open(project.link, "_blank")}
                       title="View Project Code"
                     >
-                      <svg className="w-5 h-5 md:w-6 md:h-6 text-white transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
-                      </svg>
+                      <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                        <svg className="w-5 h-5 md:w-6 md:h-6 text-white transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+                        View Code
+                      </span>
                     </button>
                   )}
+
+                  {/* Video Button */}
                   {project.videoLink && (
                     <button
-                      className="group relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300"
+                      className="group flex items-center gap-3 cursor-pointer"
                       onClick={() => window.open(project.videoLink, "_blank")}
-                      title="View Video Demo"
+                      title={project.videoLabel || "View Demo"}
                     >
-                      <Play className="w-4 h-4 md:w-5 md:h-5 text-white" />
+                      <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                        <Play className="w-4 h-4 md:w-5 md:h-5 text-white transform group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+                        {project.videoLabel || "View Demo"}
+                      </span>
                     </button>
                   )}
-                  <span className="text-gray-400 text-sm">
-                    {project.link ? "View Project" : (project.videoLink ? "View Presentation" : "")}
-                  </span>
                 </div>
               </div>
 
-              {/* --- Project Images --- */}
+              {/* Project Images */}
               <div className="flex-1 relative w-full">  
                 <div className="grid grid-cols-2 gap-3 md:gap-4 max-w-lg mx-auto">
                   {project.images.map((image, imageIndex) => (

@@ -24,6 +24,13 @@ const achievementsData = [
     description:
       "Recognized as a tutor of Responsive class Mid Term Exam Even Semester Period 2025/2026 held by BINUS Student Learning Community, helping students prepare for Code Reengineering exam, a subject focused on refactoring and software maintenance using Java",
   },
+  {
+    id: 4,
+    title: "GEn-CITy 2025 Conference Presenter",
+    image: "/paperpresenter.jpg",
+    description:
+      "Awarded a Certificate of Presentation for successfully delivering an oral presentation on the research paper 'Benchmarking Model Performance on Deepfake Detection using Deep Neural Network' at the 2025 International Conference on Green Energy, Computing and Intelligent Technology (GEn-CITy) in Bali.",
+  },
 ]
 
 export default function AchievementsSection() {
