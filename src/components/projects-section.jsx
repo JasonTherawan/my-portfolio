@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Play, Globe } from "lucide-react";
+import { Play, Globe, Download } from "lucide-react";
 
 const projectsData = [
   {
