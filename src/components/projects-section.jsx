@@ -16,6 +16,7 @@ const projectsData = [
     link: "https://github.com/JasonTherawan/PlanIt",
     websiteLink: "https://planitplanner.vercel.app",
     videoLink: null,
+    downloadLink: null,
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ const projectsData = [
     link: "https://github.com/JasonTherawan/BlinkBank",
     websiteLink: null,
     videoLink: null,
+    downloadLink: null,
   },
   {
     id: 3,
@@ -46,6 +48,7 @@ const projectsData = [
     link: "https://github.com/JasonTherawan/GoVlashLaundry",
     websiteLink: null,
     videoLink: null,
+    downloadLink: "https://github.com/JasonTherawan/GoVlashLaundry/releases/latest",
   },
   {
     id: 4,
@@ -60,6 +63,7 @@ const projectsData = [
     websiteLink: null,
     videoLink: "https://youtu.be/JbN-0TZBvRU?si=-TiY4cNIgLoOepvC",
     videoLabel: "View Presentation",
+    downloadLink: null,
   },
   {
     id: 5,
@@ -76,6 +80,7 @@ const projectsData = [
     websiteLink: null,
     videoLink: "https://drive.google.com/file/d/18d3ghpS4pgjmyYuDZNCH3406RcHdKE9O/view?usp=sharing",
     videoLabel: "View Demo",
+    downloadLink: null,
   },
   {
     id: 6,
@@ -89,6 +94,7 @@ const projectsData = [
     link: "https://github.com/Kimchiigu/LOrdCardShop",
     websiteLink: null,
     videoLink: null,
+    downloadLink: null,
   },
   {
     id: 7,
@@ -103,6 +109,7 @@ const projectsData = [
     websiteLink: null,
     videoLink: "https://drive.google.com/file/d/1AkzUwcYo77-SOdmGFgwXt42PN768IfXY/view?usp=sharing",
     videoLabel: "View Presentation",
+    downloadLink: null,
   },
 ];
 
@@ -148,22 +155,6 @@ export default function ProjectsSection() {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap items-center gap-6 mt-6">
-                  {/* Website Button */}
-                  {project.websiteLink && (
-                    <button
-                      className="group flex items-center gap-3 cursor-pointer"
-                      onClick={() => window.open(project.websiteLink, "_blank")}
-                      title="View Live Website"
-                    >
-                      <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-                        <Globe className="w-5 h-5 md:w-6 md:h-6 text-white transform group-hover:scale-110 transition-transform duration-300" />
-                      </div>
-                      <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
-                        Visit Website
-                      </span>
-                    </button>
-                  )}
-
                   {/* Code Button */}
                   {project.link && (
                     <button
@@ -181,6 +172,22 @@ export default function ProjectsSection() {
                       </span>
                     </button>
                   )}
+                  
+                  {/* Website Button */}
+                  {project.websiteLink && (
+                    <button
+                      className="group flex items-center gap-3 cursor-pointer"
+                      onClick={() => window.open(project.websiteLink, "_blank")}
+                      title="View Live Website"
+                    >
+                      <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                        <Globe className="w-5 h-5 md:w-6 md:h-6 text-white transform group-hover:scale-110 transition-transform duration-300" />
+                      </div>
+                      <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+                        Visit Website
+                      </span>
+                    </button>
+                  )}
 
                   {/* Video Button */}
                   {project.videoLink && (
@@ -194,6 +201,22 @@ export default function ProjectsSection() {
                       </div>
                       <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
                         {project.videoLabel || "View Demo"}
+                      </span>
+                    </button>
+                  )}
+
+                  {/* Download Button */}
+                  {project.downloadLink && (
+                    <button
+                      className="group flex items-center gap-3 cursor-pointer"
+                      onClick={() => window.open(project.downloadLink, "_blank")}
+                      title="Download Installer"
+                    >
+                      <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
+                        <Download className="w-4 h-4 md:w-5 md:h-5 text-white transform group-hover:scale-110 group-hover:translate-y-0.5 transition-all duration-300" />
+                      </div>
+                      <span className="text-gray-300 text-sm font-medium group-hover:text-white transition-colors">
+                        Download .exe
                       </span>
                     </button>
                   )}
