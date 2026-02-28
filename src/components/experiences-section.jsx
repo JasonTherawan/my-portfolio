@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 const experiencesData = [
   {
     id: 1,
-    time: "February 2025 - Present",
+    time: "February 2025 - February 2026",
     title: "IT Staff",
     company: "Bina Nusantara English Club (BNEC)",
     description:
